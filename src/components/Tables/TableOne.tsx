@@ -14,7 +14,7 @@ interface DoctorData {
   verified : string,
   speciality : string,
   status : string
-  // Add more properties as needed
+  
 }
 
 
@@ -85,7 +85,7 @@ getAlldoctors()
           >
             <div className="flex items-center gap-3 p-2.5 xl:p-5">
               <div className="flex-shrink-0">
-                <img src={element.profile_picture} alt="Brand" className="h-8 w-auto" />
+                <img src={element.profile_picture} alt="Brand" className="h-20 w-auto  object-cover rounded-full " />
               </div>
               <p className="hidden text-black dark:text-white sm:block">
                 {element.FullName}
