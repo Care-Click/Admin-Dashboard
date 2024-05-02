@@ -20,6 +20,13 @@ function ProfileDetails() {
             id_card: string;
             medical_id: string;
         }; 
+        location:{
+            place:{
+                country:string;
+                city:string;
+                district:string;
+            }
+        }
       }
 
 
@@ -27,7 +34,25 @@ useEffect(()=>{
   doctorInfo()
 },[])
 
-const [data,setData]=useState<Info[]>([])
+const [data,setData]=useState<Info>({ gender: "",
+    email: "",
+    phone_number: "",
+    FullName: "",
+    profile_picture: "",
+    speciality: "",
+    MedicalExp: {
+        bio: "",
+        id_card: "",
+        medical_id: "",
+    }, 
+    location:{
+        
+        place:{
+            country:"",
+            city:"",
+            district:""
+        }
+    }})
 
 const location = useLocation();
 const doctorId = location.state.doctorId;
@@ -37,8 +62,21 @@ const navigate = useNavigate();
       
         try {
             const result = await axios.get(`http://localhost:3000/api/admin/getoneDoctor/${doctorId}`)
-            console.log(result.data)
-            setData(result.data)
+            console.log(result.data);
+            
+            const res = result.data
+
+       
+                
+              res.location =  JSON.parse(res.location) 
+             
+              
+    
+            
+            
+
+            setData(res)
+            
         } catch (error) {
             
         } 
@@ -47,7 +85,7 @@ const navigate = useNavigate();
     const verifyDoctor = async ()=>{
         try {
             const result = await axios.put(`http://localhost:3000/api/admin/verifyDoctor/${doctorId}`)
-            console.log(result)
+            
         } catch (error) {
             console.log(error)
         }
@@ -89,7 +127,7 @@ const navigate = useNavigate();
                             </div>
                             <div className="mb-4">
                                 <p className="text-gray-700 font-medium">Location:</p>
-                                <p className="text-gray-700">{data?.location}</p>
+                                <p className="text-gray-700">{data?.location.place.city}</p>
                             </div>
                             <div className="mb-4">
                                 <p className="text-gray-700 font-medium">Birthday:</p>
