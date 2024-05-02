@@ -53,11 +53,9 @@ getallPatients()
           <p className="font-medium">Phone Number </p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="font-medium">Sold</p>
+          <p className="font-medium">Birth day</p>
         </div>
-        <div className="col-span-1 flex items-center">
-          <p className="font-medium">Profit</p>
-        </div>
+        
       </div>
 
       {data.map((element, key) => (
@@ -67,8 +65,11 @@ getallPatients()
         >
           <div className="col-span-3 flex items-center">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <div className="h-12.5 w-15 rounded-md">
-                <img src={element.profile_picture} alt="Product" />
+              <div className="h-12.5 w-15 rounded-md flex-shrink-0">
+                <img src={element.profile_picture}
+                 alt="Product"
+                 className='h-full w-full object-cover rounded-full '
+                 />
               </div>
               <p className="text-sm text-black dark:text-white">
                 {element.FullName}
@@ -86,10 +87,10 @@ getallPatients()
             </p>
           </div>
           <div className="col-span-1 flex items-center">
-            <p className="text-sm text-black dark:text-white">{element.date_of_birth}</p>
+            <p className="text-sm text-black dark:text-white">{  element.date_of_birth.slice(0,10)}</p>
           </div>
           <div className="col-span-1 flex items-center">
-            {/* <p className="text-sm text-meta-3">${product.profit}</p> */}
+          
           </div>
         </div>
       ))}
