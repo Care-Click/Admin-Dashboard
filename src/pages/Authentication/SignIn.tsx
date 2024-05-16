@@ -2,6 +2,8 @@ import React ,{useState} from 'react';
 import {  useNavigate } from 'react-router-dom';
 import DefaultLayout from '../../layout/DefaultLayout';
 
+import image from '../../images/bg signin.jpeg'
+
 
 import axios from 'axios';
 
@@ -25,14 +27,19 @@ navigate("/dashboard")
   return (
   
 <>
-  <div className="flex justify-center items-center h-screen">
-    <div className="w-full max-w-lg">
-      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-        <div className="p-8">
-          <h2 className="text-2xl font-bold text-center text-black dark:text-white mb-8">
+  <div className="grid grid-cols-[2fr_2fr] justify-center items-center h-screen bg-cover" style={{
+backgroundImage : "url('/src/images/bg signin.jpeg')"}}>
+<div className="z-10 p-4 text-white font-bold text-3xl mt-8">
+          <p>Welcome to the Admin Portal.<br></br>
+             Please sign in to continue.</p>
+        </div>
+    <div  className="w-full max-w-lg " >
+      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+        <div className="p-8 ">
+          <h2 className="text-2xl font-bold text-center text-primary dark:text-white mb-8">
             Sign In
           </h2>
-          <div className="mb-4">
+          <div className="mb-4 ">
             <label className="block font-medium text-black dark:text-white mb-2.5">
               Email
             </label>
