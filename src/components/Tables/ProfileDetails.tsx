@@ -138,7 +138,7 @@ const navigate = useNavigate();
                     <div className="flex justify-center space-x-4 p-4">
                         <button onClick={()=>{
                             verifyDoctor()
-                          navigate("/")
+                          navigate("/dashboard")
                             }} className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">
                             Accept
                         </button>
