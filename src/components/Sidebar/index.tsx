@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import Logo from '../../images/logo/logo.svg';
+
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -54,7 +55,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       document.querySelector('body')?.classList.remove('sidebar-expanded');
     }
   }, [sidebarExpanded]);
-
+  const navigate = useNavigate();
   return (
     <aside
       ref={sidebar}
@@ -309,7 +310,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           </defs>
                         </svg>
             <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2">
-              <button>log out </button> 
+              <button onClick={()=>{navigate("/")}} >log out </button> 
             </h3>
             </div>
             <ul className="mb-6 flex flex-col gap-1.5">
